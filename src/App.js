@@ -1,9 +1,10 @@
-import './App.css';
+import './App.css'; 
+import Home from './Home';
 import DataApi from './DataApi';
-import DataFilm from './DataFilm'
-import DetailDataFilm from './DetailDataFilm'
 import SearchTitleFilm from './pisah_search_list/SearchTitleFilm';
 import ListFilm from './pisah_search_list/ListFilm'
+// import DataFilm from './DataFilm';
+import DetailDataFilm from './DetailDataFilm'
 import { Routes, Route, Link } from "react-router-dom";
 
 // ==== Baca ini terlebih dahulu untuk memahami alur projek nya ====
@@ -18,7 +19,7 @@ function App() {
     <div className="App">
       <nav><Link to="/film">Film</Link></nav>
       <Routes>
-        <Route path="/" element={<DataFilm />} />
+        <Route path="/" element={<Home />} />
         {/* :filmTitle menggunakan react router untuk mengambil parameter dari url menggunakan fungsi useParams(). misal kita ingin mengambil parameter dari url setelah kita mengirim judul filmnya dari DataFilm melalui tombol detail, jadi nanti kita bisa mengambil parameter url nya di dalam halaman DetailDataFilm*/}
         {/* Karena masalah ada judul film yang sama maka filmTitle diganti jadi filmId (id yang diberikan oleh imdb) */}
         <Route path="/film/detail/:filmId" element={<DetailDataFilm />} />

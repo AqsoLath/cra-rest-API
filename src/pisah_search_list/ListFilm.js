@@ -38,7 +38,7 @@ export default function ListFilm(){
                                         <img className="h-80" src={item.Poster} alt={item.Title} />
                                         <h2 className="text-xl font-semibold text-emas mt-1 mb-2">{item.Title}</h2>
                                         <h3 className="rounded-full border-2 border-putih hover:bg-warna3 hover:text-warna1 py-1 cursor-pointer" onClick={function(){navigate('/film/detail/' + item.imdbID)}}>Detail</h3>
-                                        {/* Agar url yang kita gunakan rapih saat kita mencet tombol detail kita mundurin dulu menggunakan '/' agar yang ada di url hanya item.imdbID dan tidak bersama dengan judul yang kita masukkan lewat SearchTitleFilm.js */}
+                                        {/* Agar url yang kita gunakan rapih saat kita mencet tombol detail kita masuk dulu ke route detail baru ke filmId agar yang ada di url film/detail/filmId */}
                                     </div>
                                 })}
                             </div>

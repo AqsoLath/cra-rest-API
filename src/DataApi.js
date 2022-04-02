@@ -2,7 +2,7 @@ import React from "react";
 
 export default function DataApi() {
 
-    const [items, setItems] = React.useState([])
+    const [items, setItems] = React.useState({})
     const [loading, setLoading] = React.useState(true)
 
     //React.useEffect berfungsi untuk membaca/memantau apabila halaman telah dirender, jadi saat halaman dirender useEffect ini akan menjalankan fungsi yang ada di dalamnya. useEffect cocok untuk sebuah component yang direndernya hanya saat pertama kali halaman dirender, contoh saat memanggil data dari api, karena setelah mengambil data dari api kita tidak perlu untuk merender data API berulang2.
@@ -10,8 +10,8 @@ export default function DataApi() {
         async function getData() {
             // fetch merupakan fungsi di javascript untuk menagmbil data dari API.
 
-            // const request = await fetch('https://covid19.mathdro.id/api/countries/indonesia');
-            const request = await fetch('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
+            const request = await fetch('https://covid19.mathdro.id/api/countries/indonesia');
+            // const request = await fetch('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
 
             // .json() adalah fungsi untuk mengambil file json yang ada dari api tersebut
             const data = await request.json();
@@ -26,9 +26,13 @@ export default function DataApi() {
         // lalu parameter kedua dari use effect adalah array yang isinya state ataupun variabel yang jika state atau variabel tersebut dirender maka akan menjalankan fungsi yang ada di dalam useEffect. bisa juga berisi array kosong, jadi nanti dia hanya dijalankan saat halaman dirender pertama kali. 
     }, [])
 
-    const dataPositif = items.positif;
-    const dataMeninggal = items.meninggal;
-    const dataSembuh = items.sembuh;
+    console.log(items);
+
+    const dataPositif = items.confirmed.value;
+    const dataMeninggal = items.deaths.value;
+    const dataSembuh = items.recovered.value;
+
+
     return (
         <>
             {/* sebelum data selesai diambil dari api, tampilkan dulu tulisan loading */}
