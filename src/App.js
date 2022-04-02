@@ -21,12 +21,12 @@ function App() {
         <Route path="/" element={<DataFilm />} />
         {/* :filmTitle menggunakan react router untuk mengambil parameter dari url menggunakan fungsi useParams(). misal kita ingin mengambil parameter dari url setelah kita mengirim judul filmnya dari DataFilm melalui tombol detail, jadi nanti kita bisa mengambil parameter url nya di dalam halaman DetailDataFilm*/}
         {/* Karena masalah ada judul film yang sama maka filmTitle diganti jadi filmId (id yang diberikan oleh imdb) */}
-        <Route path=":filmId" element={<DetailDataFilm />} />
+        <Route path="/film/detail/:filmId" element={<DetailDataFilm />} />
 
         <Route path="/covid" element={<DataApi />} />
 
         <Route path='film' element={<SearchTitleFilm/>}>
-          <Route path=":filmTitle" element={<ListFilm />} />
+          <Route path="/film/:filmTitle" element={<ListFilm />} />
         </Route>
       </Routes>
     </div>
