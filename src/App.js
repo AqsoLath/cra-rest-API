@@ -27,8 +27,18 @@ function App() {
         <Route path="/covid" element={<DataApi />} />
 
         <Route path='film' element={<SearchTitleFilm/>}>
-          <Route path="/film/:filmTitle" element={<ListFilm />} />
+          <Route path="search/:filmTitle" element={<ListFilm />} />
         </Route>
+
+        <Route
+          path="*"
+          element={
+            <main style={{ padding: "1rem" }}>
+              <p>There's nothing here!</p>
+              <Link className='text-blue-400' to="/" >Back To Home</Link>
+            </main>
+          }
+    />
       </Routes>
     </div>
   );
