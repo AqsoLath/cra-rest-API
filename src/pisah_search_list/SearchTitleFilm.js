@@ -39,8 +39,9 @@ export default function SearchTitleFilm() {
 
 
     return (
-        <div>
-            <form className="text-center" onSubmit={searchDataFilm}>
+        <div className="mt-20">
+            <h1 className="mt-4 font-bold text-center text-4xl text-emas">Cari Judul Film Berdasarkan Judul</h1>
+            <form className="text-center mt-4" onSubmit={searchDataFilm}>
                 {/* deklarasikan useRef()-nya mau di sini yaitu di inputan cari judul film */}
                 <input ref={inputTitle} className="mr-4 border-2 border-warna3 rounded caret-emas bg-white text-warna1  focus:border-emas outline-0 w-96 placeholder-warna3 py-1 px-2 " type="text" placeholder="Masukkan Judul Film" id="input-title" onChange={function (event) {
                     setSearchTitle(event.target.value);

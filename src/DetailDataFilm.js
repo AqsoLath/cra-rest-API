@@ -34,7 +34,7 @@ export default function DetailDataFilm() {
     }, [params.filmId])
 
     return (
-        <div className="container mx-auto mt-10">
+        <div className="container mx-auto mt-20">
             {!loaded ? <i>Loading...</i> :
                 <div className="flex items-center">
                     {/* Lalu setelah kita dapatkan detail film nya tinggal kita tampilkan di halamannya */}

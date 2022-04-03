@@ -27,7 +27,7 @@ export default function ListFilm(){
     }, [params.filmTitle])
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto mt-4">
             <ul>
                 {!loaded ? <i style={{ visibility: 'hidden' }}>loading...</i> :
                     <div>

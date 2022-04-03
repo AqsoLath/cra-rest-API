@@ -11,7 +11,7 @@ export default function DataApi() {
             // fetch merupakan fungsi di javascript untuk menagmbil data dari API.
 
             const request = await fetch('https://covid19.mathdro.id/api/countries/indonesia');
-            // const request = await fetch('http://apicovid19indonesia-v2.vercel.app/api/indonesia')
+            // const request = await fetch('http://apicovid19indonesia-v2.vercel.app/api/indonesia', {'mode': 'no-cors'})
 
             // .json() adalah fungsi untuk mengambil file json yang ada dari api tersebut
             const data = await request.json();
@@ -22,32 +22,53 @@ export default function DataApi() {
             // ubah loading menjadi false yang artinya loading jadi hilang
             setLoading(false)
         }
+
         getData();
+        // console.log(items);
         // lalu parameter kedua dari use effect adalah array yang isinya state ataupun variabel yang jika state atau variabel tersebut dirender maka akan menjalankan fungsi yang ada di dalam useEffect. bisa juga berisi array kosong, jadi nanti dia hanya dijalankan saat halaman dirender pertama kali. 
     }, [])
 
-    console.log(items);
 
-    const dataPositif = items.confirmed.value;
-    const dataMeninggal = items.deaths.value;
-    const dataSembuh = items.recovered.value;
+    // console.log(items);
+
+
+    // const dataPositif = items.confirmed.value;
+    // const dataMeninggal = items.deaths.value;
+    // const dataSembuh = items.recovered.value;
 
 
     return (
         <>
-            {/* sebelum data selesai diambil dari api, tampilkan dulu tulisan loading */}
-            {loading ? <i>loading...</i> :
-                <div className="container mx-auto mt-20 ">
-                    {/*jika data sudah selesai diambil maka tampilkan datanya  */}
-                    <h1 className="text-slate-900 text-5xl font-semibold">Data Covid-19 di Indonesia</h1>
-                    <div className="mt-4">
-                        <h3 className="text-4xl font-medium text-yellow-600">Positif : {dataPositif}</h3>
-                        <h3 className="text-4xl font-medium text-green-600">Sembuh : {dataSembuh}</h3>
-                        <h3 className="text-4xl font-medium text-red-600">Meninggal : {dataMeninggal}</h3>
-                    </div>
+            <div className="w-full h-screen bg-white text-warna1">
 
+
+                <div className="container mx-auto pt-20 ">
+                    <h1 className="text-slate-900 text-5xl text-center font-semibold">Data Covid-19 di Indonesia</h1>
+                    {/* sebelum data selesai diambil dari api, tampilkan dulu tulisan loading */}
+                    {loading ? <i className="text-3xl text-center font-semibold mt-4 mx-auto">loading...</i> :
+                        <div className="mt-8 flex justify-evenly text-center">
+                            {/*jika data sudah selesai diambil maka tampilkan datanya  */}
+                            <div className="py-6 px-8 border-4 border-yellow-400 rounded-lg shadow-md w-52">
+                                <h3 className="text-4xl font-bold">{items.confirmed.value}</h3>
+                                <h4 className="mt-2">Positif</h4>
+                            </div>
+                            <div className="py-6 px-8 border-4 border-red-400 rounded-lg shadow-md w-52">
+                                <h3 className="text-4xl font-bold">{items.deaths.value}</h3>
+                                <h4 className="mt-2">Meninggal</h4>
+                            </div>
+                            <div className="py-6 px-8 border-4 border-green-400 rounded-lg shadow-md w-52">
+                                <h3 className="text-4xl font-bold">{items.recovered.value}</h3>
+                                <h4 className="mt-2">Sembuh</h4>
+                            </div>
+                            {/* <h3 className="text-4xl font-medium text-yellow-600">Positif : {items.confirmed.value}</h3>
+                            <h3 className="text-4xl font-medium text-green-600">Sembuh : {items.recovered.value}</h3>
+                            <h3 className="text-4xl font-medium text-red-600">Meninggal : {items.deaths.value}</h3> */}
+                        </div>
+                    }
                 </div>
-            }
+
+
+            </div>
         </>
     )
 }
