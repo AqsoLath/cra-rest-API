@@ -15,7 +15,7 @@ export default function ListFilm(){
     React.useEffect(function(){
         async function getListFilm(){
             // Kita isi variabel 's' dengan parameter url yang sudah dikirimkan dari SearchTitleFilm.js
-            const request = await fetch('http://www.omdbapi.com/?apikey=67aca4ce&s=' + params.filmTitle)
+            const request = await fetch('https://www.omdbapi.com/?apikey=67aca4ce&s=' + params.filmTitle)
             // Jadi di sini akan menampilkan sepuluh film yang namanya cocok dengan parameter url. 
             const data = await request.json();
 

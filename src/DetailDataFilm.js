@@ -15,7 +15,7 @@ export default function DetailDataFilm() {
         async function getDetailData() {
             // kita di sini mengambil ke API menggunakan parameternya adalah 't' yang berisi params.filmTitle (judul film yang kita kirimkan lewat parameter url), di sini kita tidak menggunakan parameter 's' tapi menggunakan 't' karena kita di sini hanya ingin menampilkan satu detail film berdasarkan judul film yang dikirim dari parameter url, karena parameter 's' menampilkan 10 judul film.
             // Karena masalah ada judul film yang sama maka item.Title diganti jadi item.imdbID (id yang diberikan oleh imdb) dan untuk parameter url nya diganti jadi i untuk mewakili id dilm
-            const request = await fetch('http://www.omdbapi.com/?apikey=67aca4ce&i=' + params.filmId);
+            const request = await fetch('https://www.omdbapi.com/?apikey=67aca4ce&i=' + params.filmId);
             const data = await request.json();
 
             // Setelah detail film sudah didapatkan kita masukkan ke dalam state itemsDetail.
