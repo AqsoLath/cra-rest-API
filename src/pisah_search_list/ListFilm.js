@@ -32,10 +32,10 @@ export default function ListFilm(){
                 {!loaded ? <i style={{ visibility: 'hidden' }}>loading...</i> :
                     <div>
                         {itemsFilm.Response === 'True' ?
-                            <div className="grid grid-cols-4 mt-4">
+                            <div className="grid grid-cols-1 md:grid-cols-4 mt-4">
                                 {itemsFilm.Search.map(function (item) {
                                     return <div className="mx-2 my-4 text-center" key={item.imdbID} >
-                                        <img className="h-80" src={item.Poster} alt={item.Title} />
+                                        <img className="h-80 mx-auto" src={item.Poster} alt={item.Title} />
                                         <h2 className="text-xl font-semibold text-emas mt-1 mb-2">{item.Title}</h2>
                                         <h3 className="rounded-full border-2 border-putih hover:bg-warna3 hover:text-warna1 py-1 cursor-pointer" onClick={function(){navigate('/film/detail/' + item.imdbID)}}>Detail</h3>
                                         {/* Agar url yang kita gunakan rapih saat kita mencet tombol detail kita masuk dulu ke route detail baru ke filmId agar yang ada di url film/detail/filmId */}

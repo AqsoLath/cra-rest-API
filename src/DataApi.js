@@ -46,17 +46,17 @@ export default function DataApi() {
                     <h1 className="text-slate-900 text-5xl text-center font-semibold">Data Covid-19 di Indonesia</h1>
                     {/* sebelum data selesai diambil dari api, tampilkan dulu tulisan loading */}
                     {loading ? <i className="text-3xl text-center font-semibold mt-4 mx-auto">loading...</i> :
-                        <div className="mt-8 flex justify-evenly text-center">
+                        <div className="mt-8  mx-auto flex justify-evenly flex-col md:flex-row text-center">
                             {/*jika data sudah selesai diambil maka tampilkan datanya  */}
-                            <div className="py-6 px-8 border-4 border-yellow-400 rounded-lg shadow-md w-52">
+                            <div className="py-6 px-8 border-4 border-yellow-400 rounded-lg shadow-md w-52 mx-auto my-2">
                                 <h3 className="text-4xl font-bold">{items.confirmed.value}</h3>
                                 <h4 className="mt-2">Positif</h4>
                             </div>
-                            <div className="py-6 px-8 border-4 border-red-400 rounded-lg shadow-md w-52">
+                            <div className="py-6 px-8 border-4 border-red-400 rounded-lg shadow-md w-52 mx-auto my-2">
                                 <h3 className="text-4xl font-bold">{items.deaths.value}</h3>
                                 <h4 className="mt-2">Meninggal</h4>
                             </div>
-                            <div className="py-6 px-8 border-4 border-green-400 rounded-lg shadow-md w-52">
+                            <div className="py-6 px-8 border-4 border-green-400 rounded-lg shadow-md w-52 mx-auto my-2">
                                 <h3 className="text-4xl font-bold">{items.recovered.value}</h3>
                                 <h4 className="mt-2">Sembuh</h4>
                             </div>

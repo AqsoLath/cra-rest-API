@@ -36,9 +36,9 @@ export default function DetailDataFilm() {
     return (
         <div className="container mx-auto mt-20">
             {!loaded ? <i>Loading...</i> :
-                <div className="flex items-center">
+                <div className="flex items-center flex-col md:flex-row px-2 pb-4">
                     {/* Lalu setelah kita dapatkan detail film nya tinggal kita tampilkan di halamannya */}
-                    <div className="flex-none mx-4">
+                    <div className="flex-none mx-4 mb-4">
                         <img className="border-2 border-emas" src={itemsDetail.Poster} alt={itemsDetail.Title} />
                     </div>
                     <div className="flex-1">
